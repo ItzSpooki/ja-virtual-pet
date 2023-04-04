@@ -5,6 +5,12 @@ public class App {
         int select;
 
         Scanner input = new Scanner(System.in);
+        //Professor Oak???
+        /*GOTTA
+         * CATCH
+         * EM
+         * ALL!!!
+         */
         System.out.println("Greetings, young one... welcome to the world. By what name shall your friends call you?");
         String petName = input.nextLine();
 
@@ -44,6 +50,7 @@ public class App {
                 case 1: manageHunger();
                         break;
                 case 2: drinkPet();
+                
             }
         }
         
