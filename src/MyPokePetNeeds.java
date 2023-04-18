@@ -8,10 +8,18 @@ public class MyPokePetNeeds {
     private int bladder;
     private int tiredness;
 
-    public MyPokePetNeeds(String name){
-        this.name = name;
+    public MyPokePetNeeds(String newName){
+        name = newName;
+        breed = "unknown";
+        hunger = 1;
+        thirst = 1;
+        lonliness = 1;
+        dirtiness = 1;
+        bladder = 1;
+        tiredness = 1;
     }
 
+    //Getter/Setter pairs
     public void setName(String newName){
         name = newName;
     }
@@ -66,5 +74,12 @@ public class MyPokePetNeeds {
     }
     public int getTiredness(){
         return tiredness;
+    }
+
+    public String toString() {
+        String.format("Name: $s\n Breed: %d\n Hunger: d\n Thirst: %d\n Lonliness: %d\n Bladder: %d\n Tiredness: %d\n Dirtiness: %d\n", 
+        name, breed, hunger, thirst, lonliness, bladder, tiredness, dirtiness);
+        String s = "Name: '" + name;
+        return s;
     }
 }
