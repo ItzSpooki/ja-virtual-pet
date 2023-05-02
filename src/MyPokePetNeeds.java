@@ -7,6 +7,7 @@ public class MyPokePetNeeds {
     private int dirtiness;
     private int bladder;
     private int tiredness;
+    private int experience;
 
     public MyPokePetNeeds(String newName){
         name = newName;
@@ -17,6 +18,7 @@ public class MyPokePetNeeds {
         dirtiness = 1;
         bladder = 1;
         tiredness = 1;
+        experience = 1;
     }
 
     //Getter/Setter pairs
@@ -27,7 +29,7 @@ public class MyPokePetNeeds {
         return name;
     }
 
-    public void setBredd(String newBreed){
+    public void setBreed(String newBreed){
         breed = newBreed;
     }
     public String getBreed(){
@@ -76,10 +78,27 @@ public class MyPokePetNeeds {
         return tiredness;
     }
 
-    public String toString() {
-        String.format("Name: $s\n Breed: %d\n Hunger: d\n Thirst: %d\n Lonliness: %d\n Bladder: %d\n Tiredness: %d\n Dirtiness: %d\n", 
-        name, breed, hunger, thirst, lonliness, bladder, tiredness, dirtiness);
-        String s = "Name: '" + name;
-        return s;
+    public void setExperience(int newExperience){
+        tiredness = newExperience;
     }
+    public int getExperience(){
+        return tiredness;
+    }
+
+    public void tick() {
+        hunger =+ 1;
+        thirst =+ 1;
+        lonliness =+ 1;
+        dirtiness =+ 1;
+        bladder =+ 1;
+        tiredness =+ 1;
+        experience =+ 1;
+    }
+
+    // public String toString() {
+    //     String.format("Name: $s\n Breed: %d\n Hunger: d\n Thirst: %d\n Lonliness: %d\n Bladder: %d\n Tiredness: %d\n Dirtiness: %d\n Experience: %d\n", 
+    //     name, breed, hunger, thirst, lonliness, bladder, tiredness, dirtiness, ex);
+    //     String s = "Name: '" + name;
+    //     return s;
+    // }
 }
