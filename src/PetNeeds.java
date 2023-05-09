@@ -2,7 +2,7 @@ public class PetNeeds {
     private String petName;
     private int hunger;
     private int thirst;
-    private int lonliness;
+    private int loneliness;
     private int bladder;
     private int exhaustion;
     private int dirtiness;
@@ -11,7 +11,7 @@ public class PetNeeds {
         petName = newPetName;
         hunger = 1;
         thirst = 1;
-        lonliness = 1;
+        loneliness = 1;
         bladder = 1;
         exhaustion = 1;
         dirtiness = 1;
@@ -22,7 +22,7 @@ public class PetNeeds {
         petName += 1;
         hunger += 1;
         thirst += 1;
-        lonliness += 1;
+        loneliness += 1;
         bladder += 1;
         exhaustion += 1;
         dirtiness += 1;
@@ -37,12 +37,12 @@ public class PetNeeds {
         thirst += newThirst;
     }
 
-    public void changeLonliness(int newLonliness) {
-        thirst += newLonliness;
+    public void changeLoneliness(int newLoneliness) {
+        loneliness += newLoneliness;
     }
 
     public void changeExhaustion(int newExhaustion) {
-        thirst += newExhaustion;
+        exhaustion += newExhaustion;
     }
 
     public void changeDirtiness(int newDirtiness) {
@@ -58,8 +58,8 @@ public class PetNeeds {
         this.thirst = newThirst;
     }
 
-    public void setLonliness(int newLonliness) {
-        this.lonliness = newLonliness;
+    public void setLoneliness(int newLoneliness) {
+        this.loneliness = newLoneliness;
     }
 
     public void setBladder(int newBladder) {
@@ -87,8 +87,8 @@ public class PetNeeds {
         return thirst;
     }
 
-    public int getLonliness() {
-        return lonliness;
+    public int getLoneliness() {
+        return loneliness;
     }
 
     public int getBladder() {

@@ -3,7 +3,7 @@ public class MyPokePetNeeds {
     private String breed;
     private int thirst;
     private int hunger;
-    private int lonliness;
+    private int loneliness;
     private int dirtiness;
     private int bladder;
     private int tiredness;
@@ -14,7 +14,7 @@ public class MyPokePetNeeds {
         breed = "unknown";
         hunger = 1;
         thirst = 1;
-        lonliness = 1;
+        loneliness = 1;
         dirtiness = 1;
         bladder = 1;
         tiredness = 1;
@@ -50,11 +50,11 @@ public class MyPokePetNeeds {
         return hunger;
     }
 
-    public void setLonliness(int newLonliness){
-        thirst = newLonliness;
+    public void setLoneliness(int newLoneliness){
+        loneliness = newLoneliness;
     }
-    public int getLonliness(){
-        return lonliness;
+    public int getLoneliness(){
+        return loneliness;
     }
 
     public void setDirtiness(int newDirtiness){
@@ -79,16 +79,16 @@ public class MyPokePetNeeds {
     }
 
     public void setExperience(int newExperience){
-        tiredness = newExperience;
+        experience = newExperience;
     }
     public int getExperience(){
-        return tiredness;
+        return experience;
     }
 
     public void tick() {
         hunger =+ 1;
         thirst =+ 1;
-        lonliness =+ 1;
+        loneliness =+ 1;
         dirtiness =+ 1;
         bladder =+ 1;
         tiredness =+ 1;

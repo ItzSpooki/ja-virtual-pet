@@ -22,6 +22,9 @@ public class PokePetApp {
     }
 
     public static void main(String[] arg) throws Exception {
+        int day = 0;
+        int userSelection = 1;
+        System.out.println("Pokepet");
         Scanner input = new Scanner(System.in);
         System.out.print("\n\nEnter your Pet Name: ");
         String name = input.nextLine();
@@ -46,6 +49,7 @@ public class PokePetApp {
         //             acceptName = true;
         //         }
         //} while(acceptName == false);
+        
         
         System.out.println("Greetings, " + pet.getName() + "! Welcome to pokepet! Here you can raise your very own pet!" 
             + " Choose your pet of the 3 options we give you and you can watch it grow to love you as its owner."
@@ -74,5 +78,63 @@ public class PokePetApp {
         }
         System.out.println("Your choice is: " + breed + ", " + pet.getBreed());
 
+        while (userSelection != 0){
+            System.out.println("\nDay #" + day);
+
+            System.out.println("\nStats:");
+            System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n", "Hunger: " + pet.getHunger(), "Thirst: " + pet.getThirst(), "Loneliness: " + pet.getLoneliness(), "Bladder: " + pet.getBladder(), "Tiredness: " + pet.getTiredness(), "Dirtiness: " + pet.getDirtiness(), "Exp: " + pet.getExperience());
+
+            System.out.println("\nWhat would you like " + pet.getBreed() + " to do today?");
+            System.out.println(
+                "1. Eat" +
+                "\n2. Drink Water" +
+                "\n3. Play" +
+                "\n4. Use da Restroon" +
+                "\n5. Sleep" +
+                "\n6. Bathe" +
+                "\n7. BATTLE" +
+                "\n0. Exit");
+            userSelection = input.nextInt();;
+            
+            if (userSelection == 1)
+            {
+                pet.setHunger(pet.getHunger() - 10);
+            }
+            if (userSelection == 2)
+            {
+                pet.setThirst(pet.getThirst() - 10);
+            }
+            if (userSelection == 3)
+            {
+                pet.setLoneliness(pet.getLoneliness() - 10);
+            }
+            if (userSelection == 4)
+            {
+                pet.setBladder(pet.getBladder() - 10);
+            }
+            if (userSelection == 5)
+            {
+                pet.setTiredness(pet.getTiredness() - 10);
+            }
+            if (userSelection == 6)
+            {
+                pet.setDirtiness(pet.getDirtiness() - 10);
+            }
+            if (userSelection == 7)
+            {
+                pet.setExperience(pet.getExperience() + 1);
+            }
+            
+            pet.setHunger(pet.getHunger() + 1);
+            pet.setThirst(pet.getThirst() + 1);
+            pet.setLoneliness(pet.getLoneliness() + 1);
+            pet.setBladder(pet.getBladder() + 1);
+            pet.setTiredness(pet.getTiredness() + 1);
+            pet.setDirtiness(pet.getDirtiness() + 1);
+
+            day++;
+        }
+        System.out.println("\nHave a good day!\n");
     }
+
 }
