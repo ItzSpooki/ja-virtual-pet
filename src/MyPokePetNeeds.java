@@ -18,7 +18,7 @@ public class MyPokePetNeeds {
         dirtiness = 1;
         bladder = 1;
         tiredness = 1;
-        experience = 1;
+        experience = 0;
     }
 
     //Getter/Setter pairs

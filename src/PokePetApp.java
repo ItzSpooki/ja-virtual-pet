@@ -1,11 +1,12 @@
+import java.sql.SQLPermission;
 import java.util.Scanner;
 //Sc7SFnwW - password for accenture
 import javax.lang.model.element.Name;
 
 public class PokePetApp {
 
+   
     public static boolean nameCheck(String name){
-
         int length = name.length();
         if (length >= 3 && length <= 10){
             return false;
@@ -21,9 +22,11 @@ public class PokePetApp {
         return true;
     }
 
+
     public static void main(String[] arg) throws Exception {
         int day = 0;
         int userSelection = 1;
+        int abilitySelection = 1;
         System.out.println("Pokepet");
         Scanner input = new Scanner(System.in);
         System.out.print("\n\nEnter your Pet Name: ");
@@ -84,6 +87,37 @@ public class PokePetApp {
             System.out.println("\nStats:");
             System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n", "Hunger: " + pet.getHunger(), "Thirst: " + pet.getThirst(), "Loneliness: " + pet.getLoneliness(), "Bladder: " + pet.getBladder(), "Tiredness: " + pet.getTiredness(), "Dirtiness: " + pet.getDirtiness(), "Exp: " + pet.getExperience());
 
+            if(breed == 1 && pet.getExperience() == 40){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Ivysaur");
+                System.out.println("Your Bulbasaur evolved into an " + pet.getBreed() + "!");
+            }
+            if(breed == 2 && pet.getExperience() == 40){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Charmeleon");
+                System.out.println("Your Charmander evolved into a " + pet.getBreed() + "!");
+            }
+            if(breed == 3 && pet.getExperience() == 40){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Wartortle");
+                System.out.println("Your Squirtle evolved into a " + pet.getBreed() + "!");
+            }
+            if(breed == 1 && pet.getExperience() == 120){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Venosaur");
+                System.out.println("Your Ivysaur evolved into a " + pet.getBreed() + "!");
+            }
+            if(breed == 2 && pet.getExperience() == 120){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Charizard");
+                System.out.println("Your Charmeleon evolved into a " + pet.getBreed() + "!");
+            }
+            if(breed == 3 && pet.getExperience() == 120){
+                System.out.println("\nYour " + pet.getBreed() + " is evolving!");
+                pet.setBreed("Blastoise");
+                System.out.println("Your Wartortle evolved into a " + pet.getBreed() + "!");
+            }
+
             System.out.println("\nWhat would you like " + pet.getBreed() + " to do today?");
             System.out.println(
                 "1. Eat" +
@@ -103,26 +137,82 @@ public class PokePetApp {
             if (userSelection == 2)
             {
                 pet.setThirst(pet.getThirst() - 10);
+                pet.setBladder(pet.getBladder() + 6);
             }
             if (userSelection == 3)
             {
                 pet.setLoneliness(pet.getLoneliness() - 10);
+                pet.setDirtiness(pet.getDirtiness() + 7);
             }
             if (userSelection == 4)
             {
                 pet.setBladder(pet.getBladder() - 10);
+                pet.setThirst(pet.getThirst() + 3);
             }
             if (userSelection == 5)
             {
                 pet.setTiredness(pet.getTiredness() - 10);
+                pet.setHunger(pet.getHunger() + 5);
+                pet.setThirst(pet.getThirst() + 5);
             }
             if (userSelection == 6)
             {
-                pet.setDirtiness(pet.getDirtiness() - 10);
+                pet.setDirtiness(pet.getDirtiness() - 13);
             }
             if (userSelection == 7)
             {
-                pet.setExperience(pet.getExperience() + 1);
+                if(pet.getExperience() < 40){
+                    pet.setExperience(pet.getExperience() + 5);
+                    pet.setDirtiness(pet.getExperience() + 8);
+                }
+                if(breed == 1){
+                    if(pet.getExperience() >=40 && pet.getExperience() < 120){
+
+                    } else if(pet.getExperience() >= 120){
+
+                    }
+                }
+                if(breed == 2){
+                if(pet.getExperience() >=40 && pet.getExperience() < 120){
+
+                    } else if(pet.getExperience() >= 120){
+                        
+                    }
+                }
+                if(breed == 3){
+                    if(pet.getExperience() >=40 && pet.getExperience() < 120){
+                        System.out.println("Which ability would you like to train?");
+                        System.out.println("1. Tackle" + "/n2. Water Gun");
+                        abilitySelection = input.nextInt();
+                        if(abilitySelection == 1){
+                            pet.setDirtiness(pet.getDirtiness() + 10);
+                            pet.setTiredness(pet.getTiredness() + 7);
+                        }
+                        else if(abilitySelection == 2){
+                            pet.setDirtiness(pet.getDirtiness() + 3);
+                            pet.setTiredness(pet.getTiredness() + 7);
+                        }
+                    } else if(pet.getExperience() >= 120){
+                        System.out.println("Which ability would you like to train?");
+                        System.out.println("1. Skull Bash" + "/n2. Iron Defense" + "\n3. Hydro Pump" + "\n4. Aqua Tail");
+                        abilitySelection = input.nextInt();
+                        if(abilitySelection == 1){
+                            pet.setDirtiness(pet.getDirtiness() + 10);
+                            pet.setTiredness(pet.getTiredness() + 10);
+                        }
+                        else if(abilitySelection == 2){
+                            pet.setDirtiness(pet.getDirtiness() + 1);
+                            pet.setTiredness(pet.getTiredness() + 6);
+                        }
+                        else if(abilitySelection == 3){
+                            pet.setTiredness(pet.getTiredness() + 13);
+                        }
+                        else if(abilitySelection == 4){
+                            pet.setDirtiness(pet.getDirtiness() + 4);
+                            pet.setTiredness(pet.getTiredness() + 9);
+                        }
+                    }
+                }
             }
             
             pet.setHunger(pet.getHunger() + 1);
@@ -135,6 +225,8 @@ public class PokePetApp {
             day++;
         }
         System.out.println("\nHave a good day!\n");
-    }
 
+        
+    }
+    
 }
