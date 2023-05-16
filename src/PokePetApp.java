@@ -54,11 +54,12 @@ public class PokePetApp {
         //} while(acceptName == false);
         
         
-        System.out.println("Greetings, " + pet.getName() + "! Welcome to pokepet! Here you can raise your very own pet!" 
+        System.out.println("\nGreetings, little " + pet.getName() + "! Welcome to pokepet! \nHere you can raise your very own pet!" 
             + " Choose your pet of the 3 options we give you and you can watch it grow to love you as its owner."
-            + " Once enough favorability is reached. The pet will evolve and gain unique ways to play with you." + System.lineSeparator() );
+            + " Once \nenough experience is earned. The pet will evolve and gain unique ways to play(and battle!) with you." + 
+            "\nTry to keep your pet satisfied by keeping their stats as low as possible, except for experience which you gain thorugh battling");
 
-        System.out.println("What type of pokemon would you like to raise?");
+        System.out.println("\nWhat type of pokemon would you like to raise?");
         System.out.println("1. Bulbasaur");
         System.out.println("2. Charmander");
         System.out.println("3. Squirtle");
@@ -174,9 +175,9 @@ public class PokePetApp {
                             pet.setTiredness(pet.getTiredness() + 7);
                         }
                         else if(abilitySelection == 2){
-                            pet.setTiredness(pet.getTiredness() - 2);
-                            pet.setHunger(pet.getHunger() - 2);
-                            pet.setThirst(pet.getThirst() - 2);
+                            pet.setTiredness(pet.getTiredness() - 4);
+                            pet.setHunger(pet.getHunger() - 4);
+                            pet.setThirst(pet.getThirst() - 4);
                             pet.setDirtiness(pet.getDirtiness() + 5);
                         }
                     } else if(pet.getExperience() >= 120){
@@ -276,14 +277,19 @@ public class PokePetApp {
                 pet.setExperience(pet.getExperience() + 5);
             }
             
-            pet.setHunger(pet.getHunger() + 1);
-            pet.setThirst(pet.getThirst() + 1);
-            pet.setLoneliness(pet.getLoneliness() + 1);
-            pet.setBladder(pet.getBladder() + 1);
+            pet.setHunger(pet.getHunger() + 2);
+            pet.setThirst(pet.getThirst() + 2);
+            pet.setLoneliness(pet.getLoneliness() + 2);
+            pet.setBladder(pet.getBladder() + 2);
             pet.setTiredness(pet.getTiredness() + 1);
             pet.setDirtiness(pet.getDirtiness() + 1);
 
             day++;
+
+            if(pet.getHunger() > 100 || pet.getThirst() > 100 || pet.getBladder() > 100 || pet.getTiredness() > 120 || pet.getLoneliness() > 100 || pet.getDirtiness() > 120){
+                System.out.println("Oops! One of your stats went too high and your pet has fainted. \n Press 0 to exit the game.");
+                userSelection = input.nextInt();
+            }
         }
         System.out.println("\nHave a good day!\n");   
     }  
